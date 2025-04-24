@@ -5,6 +5,7 @@ from fastapi import HTTPException
 from models.PokeRequest import PokeRequest
 from utils.database import execute_query_json
 from utils.AQueue import AQueue
+from utils.ABlob import ABlob
 
 
 # configurar el logging

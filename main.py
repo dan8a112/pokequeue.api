@@ -4,8 +4,17 @@ from fastapi import FastAPI
 from utils.database import execute_query_json
 from controllers.PokeRequestController import insert_pokemon_request, update_pokemon_request, select_pokemon_request, delete_pokemon_to_queue, delete_pokemon_request, get_all_request
 from models.PokeRequest import PokeRequest
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permitir todos los orígenes
+    allow_credentials=True,
+    allow_methods=["*"],  # Permitir todos los métodos
+    allow_headers=["*"],  # Permitir todos los encabezados
+)
+
 
 @app.get("/")
 async def root():

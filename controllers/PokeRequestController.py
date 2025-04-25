@@ -26,7 +26,7 @@ async def select_pokemon_request(id: int) -> dict:
     
 async def insert_pokemon_request(pokemon_request: PokeRequest) -> dict:
     try:
-        query = "EXEC pokequeue.create_poke_request @pokemon_type=?, @sample_size=?" 
+        query = "EXEC pokequeue.create_poke_request @type=?, @sample_size=?" 
         params = (
             pokemon_request.pokemon_type,
             pokemon_request.sample_size  
